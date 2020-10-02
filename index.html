@@ -19,7 +19,7 @@ easychess log page
     {
       document.write(`<table>`)
       JSON.parse(content).map(item=>
-        document.write(`<tr><td>${item.commit.message}</td><td>${item.commit.author.date}</td><td><a href="https://lichess.org/${item.commit.message.split(" ")[2]}"></a></td></tr>`)
+        document.write(`<tr><td>${item.commit.message}</td><td>${item.commit.author.date}</td><td><a href="https://lichess.org/${item.commit.message.split(" ")[2]}">open</a></td></tr>`)
       )
       document.write(`</table>`)
     }
