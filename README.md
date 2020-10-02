@@ -1,0 +1,2 @@
+# logpage
+log page
