@@ -15,7 +15,7 @@ easychess log page
     }
   ))
   
-  fetch(`https://api.github.com/repos/easychessanimations/botgame/commits`).then(response=>response.text().then(content=>
+  setTimeout(_=>fetch(`https://api.github.com/repos/easychessanimations/botgame/commits`).then(response=>response.text().then(content=>
     {
       document.write(`<table>`)
       JSON.parse(content).map(item=>
@@ -23,5 +23,5 @@ easychess log page
       )
       document.write(`</table>`)
     }
-  ))
+  )), 1000)
 </script>
