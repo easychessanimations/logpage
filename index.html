@@ -7,7 +7,7 @@ easychess log page
 <script>
   fetch(`https://api.github.com/repos/easychessanimations/botlogin/commits`).then(response=>response.text().then(content=>
     JSON.parse(content).map(item=>
-      document.write(`${item.commit.message} ${commit.author.date}<br>`)
+      document.write(`${item.commit.message} ${item.commit.author.date}<br>`)
     )
   ))
 </script>
