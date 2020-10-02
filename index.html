@@ -14,4 +14,14 @@ easychess log page
       document.write(`</table>`)
     }
   ))
+  
+  fetch(`https://api.github.com/repos/easychessanimations/botgame/commits`).then(response=>response.text().then(content=>
+    {
+      document.write(`<table>`)
+      JSON.parse(content).map(item=>
+        document.write(`<tr><td>${item.commit.message}</td><td>${item.commit.author.date}</td></tr>`)
+      )
+      document.write(`</table>`)
+    }
+  ))
 </script>
