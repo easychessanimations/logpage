@@ -9,7 +9,7 @@ easychess log page
     {
       document.write(`<table cellpadding="1" cellspacing="3">`)
       JSON.parse(content).slice(0,10).map(item=>
-        document.write(`<tr><td>${item.commit.message}</td><td>${item.commit.author.date}</td><td><a href="https://lichess.org/@/${item.commit.message.split(" ")[0]}" rel="noopener noreferrer" target="_blamk">open</a></td></tr>`)
+        document.write(`<tr><td>${item.commit.message}</td><td>${item.commit.author.date}</td><td><a href="https://lichess.org/@/${item.commit.message.split(" ")[0]}" rel="noopener noreferrer" target="_blamk">&nbsp;open</a></td></tr>`)
       )
       document.write(`</table>`)
     
@@ -17,7 +17,7 @@ easychess log page
       {
         document.write(`<hr><table cellpadding="1" cellspacing="3">`)
         JSON.parse(content).map(item=>
-          document.write(`<tr><td>${item.commit.message}</td><td>${item.commit.author.date}</td><td><a href="https://lichess.org/${item.commit.message.split(" ")[2]}" rel="noopener noreferrer" target="_blamk">open</a></td></tr>`)
+          document.write(`<tr><td>${item.commit.message}</td><td>${item.commit.author.date}</td><td><a href="https://lichess.org/${item.commit.message.split(" ")[2]}" rel="noopener noreferrer" target="_blamk">&nbsp;open</a></td></tr>`)
         )
         document.write(`</table>`)
         
