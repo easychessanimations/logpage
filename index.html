@@ -7,7 +7,7 @@ easychess log page
 <script>
   fetch(`https://api.github.com/repos/easychessanimations/botlogin/commits`).then(response=>response.text().then(content=>
     {
-      document.write(`${new Date().toLocaleString()}<hr><table cellpadding="1" cellspacing="3">`)
+      document.write(`${new Date().toUTCString()}<hr><table cellpadding="1" cellspacing="3">`)
       JSON.parse(content).slice(0,10).map(item=>
         document.write(`<tr><td>${item.commit.message}</td><td>${item.commit.author.date}</td><td>&nbsp;<a href="https://lichess.org/@/${item.commit.message.split(" ")[0]}" rel="noopener noreferrer" target="_blamk">open</a></td></tr>`)
       )
