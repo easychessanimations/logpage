@@ -6,7 +6,7 @@
 easychess log page
 <script>
   function isnew(date){
-    return (new Date().getTime() - new Date(date).getTime()) < 20 * 60 * 1000 ? " * new" : ""
+    return (new Date().getTime() - new Date(date).getTime()) < 20 * 60 * 1000 ? " * new" : " old"
   }
   fetch(`https://api.github.com/repos/easychessanimations/botlogin/commits`).then(response=>response.text().then(content=>
     {
