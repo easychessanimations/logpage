@@ -9,7 +9,7 @@ easychess log page
     {
       document.write(`${new Date().toUTCString()}<hr><table cellpadding="1" cellspacing="3">`)
       document.body.style.fontFamily = "monospace"
-      JSON.parse(content).slice(0,10).map(item=>
+      JSON.parse(content).slice(0,15).map(item=>
         document.write(`<tr><td>${item.commit.message}</td><td>${item.commit.author.date}</td><td>&nbsp;<a href="https://lichess.org/@/${item.commit.message.split(" ")[0]}" rel="noopener noreferrer" target="_blamk">open</a></td></tr>`)
       )
       document.write(`</table>`)
