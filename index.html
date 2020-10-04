@@ -7,7 +7,7 @@ easychess log page
 <script>
   function isnew(date){
     let elapsed = new Date().getTime() - new Date(date).getTime()
-    if(elapsed < 10 * 60 * 1000) return `<span style="color:#070"> *** just now !!!</span>`
+    if(elapsed < 10 * 60 * 1000) return `<span style="color:#070;font-weight:bold"> *** just now !!!</span>`
     if(elapsed < 60 * 60 * 1000) return `<span style="color:#007"> ** within in one hour</span>`
     if(elapsed < 3 * 60 * 60 * 1000) return `<span style="color:#777"> * within three hours</span>`
     if(elapsed < 6 * 60 * 60 * 1000) return `<span style="color:#999"> within six hours</span>`
