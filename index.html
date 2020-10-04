@@ -7,11 +7,11 @@ easychess log page
 <script>
   function isnew(date){
     let elapsed = new Date().getTime() - new Date(date).getTime()
-    if(elapsed < 10 * 60 * 1000) return " *** just now !!!"
-    if(elapsed < 60 * 60 * 1000) return " ** within in one hour"
+    if(elapsed < 10 * 60 * 1000) return "<span style="color:#070"> *** just now !!!</span>"
+    if(elapsed < 60 * 60 * 1000) return "<span style="color:#007"> ** within in one hour</span>"
     if(elapsed < 3 * 60 * 60 * 1000) return `<span style="color:#777"> * within three hours</span>`
     if(elapsed < 6 * 60 * 60 * 1000) return `<span style="color:#999"> within six hours</span>`
-    if(elapsed < 12 * 60 * 60 * 1000) return `<span style="color:#bbb">within half a day</span>`
+    if(elapsed < 12 * 60 * 60 * 1000) return `<span style="color:#bbb">in half a day</span>`
     return ""
   }
   fetch(`https://api.github.com/repos/easychessanimations/botlogin/commits`).then(response=>response.text().then(content=>
