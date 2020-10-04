@@ -9,10 +9,10 @@ easychess log page
     let elapsed = new Date().getTime() - new Date(date).getTime()
     if(elapsed < 10 * 60 * 1000) return `<span style="color:#070;font-weight:bold"> *** just now !!!</span>`
     if(elapsed < 60 * 60 * 1000) return `<span style="color:#007;font-weight:bold"> ** within in one hour</span>`
-    if(elapsed < 3 * 60 * 60 * 1000) return `<span style="color:#777";font-style:italic> * within three hours</span>`
-    if(elapsed < 6 * 60 * 60 * 1000) return `<span style="color:#999"> within six hours</span>`
-    if(elapsed < 12 * 60 * 60 * 1000) return `<span style="color:#bbb">in half a day</span>`
-    if(elapsed < 24 * 60 * 60 * 1000) return `<span style="color:#ddd">in a day</span>`
+    if(elapsed < 3 * 60 * 60 * 1000) return `<span style="color:#777"> * within three hours</span>`
+    if(elapsed < 6 * 60 * 60 * 1000) return `<span style="color:#999";font-style:italic> within six hours</span>`
+    if(elapsed < 12 * 60 * 60 * 1000) return `<span style="color:#bbb;font-style:italic">in half a day</span>`
+    if(elapsed < 24 * 60 * 60 * 1000) return `<span style="color:#ddd;font-style:italic">in a day</span>`
     return ""
   }
   fetch(`https://api.github.com/repos/easychessanimations/botlogin/commits`).then(response=>response.text().then(content=>
