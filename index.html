@@ -19,16 +19,16 @@ easychess log page
     {
       document.write(`${new Date().toUTCString()}<hr><table cellpadding="1" cellspacing="3">`)
       document.body.style.fontFamily = "monospace"
-      JSON.parse(content).slice(0,15).map(item=>
-        document.write(`<tr><td>${item.commit.message}</td><td>${item.commit.author.date}</td><td>&nbsp;<a href="https://lichess.org/@/${item.commit.message.split(" ")[0]}" rel="noopener noreferrer" target="_blamk">open</a></td><td>${isnew(item.commit.author.date)}</td></tr>`)
+      JSON.parse(content).slice(0,15).map((item,i)=>
+        document.write(`<tr><td>${i+1}</td><td>${item.commit.message}</td><td>${item.commit.author.date}</td><td>&nbsp;<a href="https://lichess.org/@/${item.commit.message.split(" ")[0]}" rel="noopener noreferrer" target="_blamk">open</a></td><td>${isnew(item.commit.author.date)}</td></tr>`)
       )
       document.write(`</table>`)
     
       fetch(`https://api.github.com/repos/easychessanimations/botgame/commits`).then(response=>response.text().then(content=>
       {
         document.write(`<hr><table cellpadding="1" cellspacing="3">`)
-        JSON.parse(content).map(item=>
-          document.write(`<tr><td>${item.commit.message}</td><td>${item.commit.author.date}</td><td>&nbsp;<a href="https://lichess.org/${item.commit.message.split(" ")[2]}" rel="noopener noreferrer" target="_blamk">open</a></td><td>${isnew(item.commit.author.date)}</td></tr>`)
+        JSON.parse(content).map((item,i)=>
+          document.write(`<tr><td>${i+1}</td><td>${item.commit.message}</td><td>${item.commit.author.date}</td><td>&nbsp;<a href="https://lichess.org/${item.commit.message.split(" ")[2]}" rel="noopener noreferrer" target="_blamk">open</a></td><td>${isnew(item.commit.author.date)}</td></tr>`)
         )
         document.write(`</table>`)
         
