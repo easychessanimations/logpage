@@ -10,6 +10,7 @@ easychess log page
     if(elapsed < 10 * 60 * 1000) return " *** just now !!!"
     if(elapsed < 60 * 60 * 1000) return " ** within in one hour"
     if(elapsed < 3 * 60 * 60 * 1000) return `<span style="color:#777"> * within three hours</span>`
+    if(elapsed < 6 * 60 * 60 * 1000) return `<span style="color:#aaa"> within six hours</span>`
     return ""
   }
   fetch(`https://api.github.com/repos/easychessanimations/botlogin/commits`).then(response=>response.text().then(content=>
