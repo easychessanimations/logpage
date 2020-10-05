@@ -5,7 +5,8 @@
 </head>
 easychess log page
 <script>
-  function isnew(date){
+  let maxstar = ""
+  function isnewinner(date){
     let elapsed = new Date().getTime() - new Date(date).getTime()
     if(elapsed < 10 * 60 * 1000) return `<span style="color:#070;font-weight:bold"> *** just now !!!</span>`
     if(elapsed < 60 * 60 * 1000) return `<span style="color:#007;font-weight:bold"> ** within in one hour</span>`
@@ -14,6 +15,15 @@ easychess log page
     if(elapsed < 12 * 60 * 60 * 1000) return `<span style="color:#bbb;font-style:italic">in half a day</span>`
     if(elapsed < 24 * 60 * 60 * 1000) return `<span style="color:#ddd;font-style:italic">in a day</span>`
     return ""
+  }
+  function isnew(date){
+    let instr = isnewinner(date)
+    let stars = instr.match(/(\*+)/)
+    if(stars){
+      let starsstr = stars[1]
+      if(starsstr.length > maxstar.length) maxstar = starsstr
+    }
+    return instr
   }
   fetch(`https://api.github.com/repos/easychessanimations/botlogin/commits`).then(response=>response.text().then(content=>
     {
@@ -32,7 +42,7 @@ easychess log page
         )
         document.write(`</table>`)
         
-        document.title=`easychesslogpage`
+        document.title=`easychesslogpage ${maxstar}`
       }))
     }
   ))
