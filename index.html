@@ -39,7 +39,7 @@ easychess log page
         document.write(`<hr><table cellpadding="1" cellspacing="3">`)
         JSON.parse(content).map((item,i)=>{
           document.write(`<tr><td>${i+1}</td><td>${item.commit.message}</td><td id="game${i}"></td><td>${item.commit.author.date}</td><td>&nbsp;<a href="https://lichess.org/${item.commit.message.split(" ")[2]}" rel="noopener noreferrer" target="_blamk">open</a></td><td>${isnew(item.commit.author.date)}</td></tr>`)
-          fetch(`https://github.com/easychessanimations/botgame/commit/${item.sha}`).then(response=>response.text().then(content=>
+          fetch(`https://api.github.com/repos/easychessanimations/botgame/commits/${item.sha}`).then(response=>response.text().then(content=>
             {
               document.getElementById(`game${i}`).innerHTML = "xxx"
             }
