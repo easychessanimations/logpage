@@ -42,7 +42,7 @@ easychess log page
           fetch(`https://raw.githubusercontent.com/easychessanimations/botgame/${item.sha}/${item.commit.message}`).then(response=>response.text().then(content=>
             {
               let blob = JSON.parse(content)
-              document.getElementById(`game${i}`).innerHTML = `${blob.clock.initial}`
+              document.getElementById(`game${i}`).innerHTML = `${blob.clock.initial/60000} + ${blob.clock.increment/1000}`
             }
           ))
         })
