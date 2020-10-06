@@ -43,7 +43,7 @@ easychess log page
             {
               let blob = JSON.parse(content)
               let clock = blob.clock ? `${blob.clock.initial/60000} + ${blob.clock.increment/1000}` : "infinite"
-              document.getElementById(`game${i}`).innerHTML = `${clock} ${content}`
+              document.getElementById(`game${i}`).innerHTML = `${clock} ${blob.rated ? "rated" : "casual"}`
             }
           ))
         })
