@@ -25,7 +25,7 @@ easychess log page
     }
     return instr
   }
-  fetch(`https://api.github.com/repos/easychessanimations/botgame/commits`).then(response=>response.text().then(content=>
+  fetch(`https://api.github.com/repos/easychessanimations/botlogin/commits`).then(response=>response.text().then(content=>
     {
       document.write(`${new Date().toUTCString()}<hr><table cellpadding="1" cellspacing="3">`)
       document.body.style.fontFamily = "monospace"
