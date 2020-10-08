@@ -48,10 +48,11 @@ easychess log page
           ))
           
           fetch(`https://lichess.org/game/export/${item.commit.message.split(" ")[2]}`).then(response=>response.text().then(content=>
-            let blob = JSON.parse(content)
-            document.getElementById(`result${i}`).innerHTML = `${content}`
-          }))
-        })
+            {
+              let blob = JSON.parse(content)
+              document.getElementById(`result${i}`).innerHTML = `${content}`
+            }                                                                                                              ))
+          ))
         document.write(`</table>`)
         
         document.title=`easychesslogpage ${maxstar}`
