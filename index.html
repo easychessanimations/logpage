@@ -52,7 +52,7 @@ easychess log page
             {
               let blob = JSON.parse(content)
               let plies = blob.moves ? blob.moves.split(" ").length : 0
-              document.getElementById(`result${i}`).innerHTML = `${plies < 1 ? "abort" : plies}`
+              document.getElementById(`result${i}`).innerHTML = `${plies < 2 ? "abort" : plies}`
             }                                                                                                              
           ))
         })
