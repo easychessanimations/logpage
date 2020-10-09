@@ -63,11 +63,11 @@ easychess log page
         
         fetch(`https://api.github.com/repos/easychessanimations/logtab/commits`).then(response=>response.text().then(content=>
         {
-          document.write(`<hr><table cellpadding="1" cellspacing="3">`)
+          document.write(`<hr><div style="height: 180px;overflow-y:scroll;"><table cellpadding="1" cellspacing="3">`)
           JSON.parse(content).map((item,i)=>{
             document.write(`<tr><td>${i+1}</td><td>${item.commit.message}</td><td>${item.commit.author.date}</td></tr>`)            
           })
-          document.write(`</table>`)
+          document.write(`</table></div>`)
 
           fetch(`https://api.github.com/repos/easychessanimations/logmove/commits`).then(response=>response.text().then(content=>
           {
