@@ -27,7 +27,7 @@ easychess log page
   }
   fetch(`https://api.github.com/repos/easychessanimations/botlogin/commits`).then(response=>response.text().then(content=>
     {
-      document.write(`<head><style>.tabl {background-color:#eee;}</style></head><body>${new Date().toUTCString()}<hr><div style="height: 160px;overflow-y:scroll;"><table class="tabl" cellpadding="1" cellspacing="3">`)
+      document.write(`<head><style>.tabl {background-color:#ffe;}</style></head><body>${new Date().toUTCString()}<hr><div style="height: 160px;overflow-y:scroll;"><table class="tabl" cellpadding="1" cellspacing="3">`)
       document.body.style.fontFamily = "monospace"
       JSON.parse(content).map((item,i)=>
         document.write(`<tr><td>${i+1}</td><td>${item.commit.message}</td><td>${item.commit.author.date}</td><td>&nbsp;<a href="https://lichess.org/@/${item.commit.message.split(" ")[0]}" rel="noopener noreferrer" target="_blamk">open</a></td><td>${isnew(item.commit.author.date)}</td></tr>`)
