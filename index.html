@@ -76,7 +76,7 @@ easychess log page
         
         document.title=`easychesslogpage ${maxstar}`
         
-        playstars(maxstar)
+        playstars(maxstar.length)
         
         fetch(`https://api.github.com/repos/easychessanimations/logtab/commits`).then(response=>response.text().then(content=>
         {
