@@ -60,7 +60,7 @@ easychess log page
               let blob = JSON.parse(content)
               let plies = blob.moves ? blob.moves.split(" ").length : 0
               document.getElementById(`result${i}`).innerHTML = `${plies < 2 ? "abort" : plies}`
-              if(plies>1) document.getElementById(`gamemsg${i}`).style.color = "#070"
+              document.getElementById(`gamemsg${i}`).style.color = plies > 1 ? "#070" : "#700"
             }                                                                                                              
           )), i*1000)
         })
