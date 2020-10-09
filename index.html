@@ -10,7 +10,6 @@ easychess log page
     snd.play();
   }
   
-  beep()
   let timeleft = 120
   
   let maxstar = ""
@@ -93,7 +92,7 @@ easychess log page
   setInterval(_=>{
     document.getElementById("timeleft").innerHTML = `${--timeleft}`
     
-    if(timeleft<5000) beep()
+    if(timeleft<3) beep()
     
     if(!timeleft) document.location.reload()
   }, 1000)
