@@ -92,7 +92,7 @@ easychess log page
   setInterval(_=>{
     document.getElementById("timeleft").innerHTML = `${--timeleft}`
     
-    if(timeleft<3) beep()
+    if(timeleft<4) beep()
     
     if(!timeleft) document.location.reload()
   }, 1000)
