@@ -50,13 +50,13 @@ easychess log page
             }
           ))
           
-          fetch(`https://lichess.org/game/export/${item.commit.message.split(" ")[2]}`, {headers:{Accept: "application/json"}}).then(response=>response.text().then(content=>
+          setTimeout(_=>fetch(`https://lichess.org/game/export/${item.commit.message.split(" ")[2]}`, {headers:{Accept: "application/json"}}).then(response=>response.text().then(content=>
             {
               let blob = JSON.parse(content)
               let plies = blob.moves ? blob.moves.split(" ").length : 0
               document.getElementById(`result${i}`).innerHTML = `${plies < 2 ? "abort" : plies}`
             }                                                                                                              
-          ))
+          )), i*1000)
         })
           
         document.write(`</table></div>`)
