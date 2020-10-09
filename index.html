@@ -27,16 +27,16 @@ easychess log page
   }
   fetch(`https://api.github.com/repos/easychessanimations/botlogin/commits`).then(response=>response.text().then(content=>
     {
-      document.write(`${new Date().toUTCString()}<hr><table cellpadding="1" cellspacing="3">`)
+      document.write(`${new Date().toUTCString()}<hr><div style="height: 180px;overflow-y:scroll;"><table cellpadding="1" cellspacing="3">`)
       document.body.style.fontFamily = "monospace"
-      JSON.parse(content).slice(0,20).map((item,i)=>
+      JSON.parse(content).map((item,i)=>
         document.write(`<tr><td>${i+1}</td><td>${item.commit.message}</td><td>${item.commit.author.date}</td><td>&nbsp;<a href="https://lichess.org/@/${item.commit.message.split(" ")[0]}" rel="noopener noreferrer" target="_blamk">open</a></td><td>${isnew(item.commit.author.date)}</td></tr>`)
       )
-      document.write(`</table>`)
+      document.write(`</table></div>`)
     
       fetch(`https://api.github.com/repos/easychessanimations/botgame/commits`).then(response=>response.text().then(content=>
       {
-        document.write(`<hr><div style="height: 200px;overflow-y:scroll;"><table cellpadding="1" cellspacing="3">`)
+        document.write(`<hr><div style="height: 180px;overflow-y:scroll;"><table cellpadding="1" cellspacing="3">`)
         JSON.parse(content).map((item,i)=>{
           document.write(`<tr><td>${i+1}</td><td>${item.commit.message}</td><td id="game${i}" style="width: 200px;"><td id="result${i}" style="width: 50px;"></td><td>${item.commit.author.date}</td><td>&nbsp;<a href="https://lichess.org/${item.commit.message.split(" ")[2]}" rel="noopener noreferrer" target="_blamk">open</a></td><td>${isnew(item.commit.author.date)}</td></tr>`)
           
