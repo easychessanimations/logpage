@@ -71,7 +71,7 @@ easychess log page
               document.getElementById(`result${i}`).innerHTML = `${plies < 2 ? "abort" : plies}`
               document.getElementById(`gamemsg${i}`).style.color = plies > 1 ? "#070" : "#700"
               document.getElementById(`showblobbutton${i}`).innerHTML = `show blob ( ${blob.status} )`
-              document.getElementById(`showblobbutton${i}`).style.backgroundColor = blob.status == "started" ? "#afa" : "#faa"
+              document.getElementById(`showblobbutton${i}`).style.backgroundColor = blob.status == "started" ? "#afa" : "#fdd"
               document.getElementById(`gameblob${i}`).innerHTML = "<pre>" + JSON.stringify(blob, null, 2) + "</pre>"
             }                                                                                                              
           )), i*1000)
