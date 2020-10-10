@@ -72,6 +72,7 @@ easychess log page
               document.getElementById(`gamemsg${i}`).style.color = plies > 1 ? "#070" : "#700"
               document.getElementById(`showblobbutton${i}`).innerHTML = `&nbsp;show blob ( ${blob.status} )&nbsp;`
               document.getElementById(`showblobbutton${i}`).style.backgroundColor = blob.status == "started" ? "#afa" : "#fee"
+              if(blob.status == "outoftime") document.getElementById(`showblobbutton${i}`).style.backgroundColor = "#ffa"
               document.getElementById(`showblobbutton${i}`).style.borderWidth = "1px"
               document.getElementById(`gameblob${i}`).innerHTML = "<pre>" + JSON.stringify(blob, null, 2) + "</pre>"
             }                                                                                                              
