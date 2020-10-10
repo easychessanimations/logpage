@@ -54,7 +54,7 @@ easychess log page
       {
         document.write(`<hr><div style="height: 160px;overflow-y:scroll;"><table class="tabl" cellpadding="1" cellspacing="3">`)
         JSON.parse(content).map((item,i)=>{
-          document.write(`<tr><td>${i+1}</td><td id="gamemsg${i}">${item.commit.message}</td><td id="game${i}" style="width: 200px;"></td><td id="result${i}" style="width: 50px;"></td><td style="width:200px; max-width:200px;"><button id="showblobbutton${i}" style="font-size:8px;padding:0px;" onclick="document.getElementById('gameblob${i}').style.display = 'block'"></button><div style="display:none;" id="gameblob${i}">game blob</div></td><td>${item.commit.author.date}</td><td>&nbsp;<a href="https://lichess.org/${item.commit.message.split(" ")[2]}" rel="noopener noreferrer" target="_blank">open</a></td><td>${isnew(item.commit.author.date)}</td></tr>`)
+          document.write(`<tr><td>${i+1}</td><td id="gamemsg${i}">${item.commit.message}</td><td id="game${i}" style="width: 200px;"></td><td id="result${i}" style="width: 50px;"></td><td style="width:200px; max-width:200px;"><button id="showblobbutton${i}" style="font-size:8px;padding:0px;" onclick="document.getElementById('gameblob${i}').style.display = 'block'"></button><div style="display:none;overflow-x:scroll;" id="gameblob${i}">game blob</div></td><td>${item.commit.author.date}</td><td>&nbsp;<a href="https://lichess.org/${item.commit.message.split(" ")[2]}" rel="noopener noreferrer" target="_blank">open</a></td><td>${isnew(item.commit.author.date)}</td></tr>`)
           
           fetch(`https://raw.githubusercontent.com/easychessanimations/botgame/${item.sha}/${item.commit.message}`).then(response=>response.text().then(content=>
             {
