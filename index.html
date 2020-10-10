@@ -79,6 +79,7 @@ easychess log page
               if(blob.status == "resign") document.getElementById(`showblobbutton${i}`).style.backgroundColor = "#faa"
               if(blob.status == "mate") document.getElementById(`showblobbutton${i}`).style.backgroundColor = "#faf"
               if(blob.status == "draw") document.getElementById(`showblobbutton${i}`).style.backgroundColor = "#ffa"
+              if(allbot) document.getElementById(`showblobbutton${i}`).style.marginLeft = "20px"
               document.getElementById(`showblobbutton${i}`).style.borderWidth = "1px"
               document.getElementById(`gameblob${i}`).innerHTML = "<pre>" + JSON.stringify(blob, null, 2) + "</pre>"
             }                                                                                                              
