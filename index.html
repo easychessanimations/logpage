@@ -70,7 +70,8 @@ easychess log page
               let plies = blob.moves ? blob.moves.split(" ").length : 0
               document.getElementById(`result${i}`).innerHTML = `${plies < 2 ? "abort" : plies}`
               document.getElementById(`gamemsg${i}`).style.color = plies > 1 ? "#070" : "#700"
-              document.getElementById(`showblobbutton${i}`).innerHTML = `&nbsp;show blob ( ${blob.status} )&nbsp;`
+              let allbot = (blob.players.white.title == "BOT") && (blob.players.black.title == "BOT")
+              document.getElementById(`showblobbutton${i}`).innerHTML = `&nbsp;show blob ( ${blob.status} ) ${allbot ? "BOT" : "human"} &nbsp;`
               document.getElementById(`showblobbutton${i}`).style.backgroundColor = blob.status == "started" ? "#afa" : "#aaf"
               if(blob.status == "outoftime") document.getElementById(`showblobbutton${i}`).style.backgroundColor = "#aff"
               if(blob.status == "resign") document.getElementById(`showblobbutton${i}`).style.backgroundColor = "#faa"
