@@ -32,12 +32,12 @@ easychess log page
     if(elapsed < 24 * 60 * 60 * 1000) return `<span style="color:#ddd;font-style:italic">in a day</span>`
     return ""
   }
-  function isnew(date){
+  function isnew(date, ignoremaxstar){
     let instr = isnewinner(date)
     let stars = instr.match(/(\*+)/)
     if(stars){
       let starsstr = stars[1]
-      if(starsstr.length > maxstar.length) maxstar = starsstr
+      if((starsstr.length > maxstar.length) && (!ignoremaxstar)) maxstar = starsstr
     }
     return instr
   }
@@ -112,7 +112,7 @@ easychess log page
             {
               document.write(`<hr><div style="height: 60px;overflow-y:scroll;"><table class="tabl" cellpadding="1" cellspacing="3">`)
               JSON.parse(content).map((item,i)=>{
-                document.write(`<tr><td>${i+1}</td><td>${item.commit.message}</td><td>${item.commit.author.date}</td><td>&nbsp;<a href="https://raw.githubusercontent.com/easychessanimations/logmove/${item.sha}/${item.commit.message}" rel="noopener noreferrer" target="_blank">open</a></td><td>${isnew(item.commit.author.date)}</td></tr>`)            
+                document.write(`<tr><td>${i+1}</td><td>${item.commit.message}</td><td>${item.commit.author.date}</td><td>&nbsp;<a href="https://raw.githubusercontent.com/easychessanimations/logmove/${item.sha}/${item.commit.message}" rel="noopener noreferrer" target="_blank">open</a></td><td>${isnew(item.commit.author.date, true)}</td></tr>`)            
               })
               document.write(`</table></div></body>`)
 
