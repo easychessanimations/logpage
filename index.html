@@ -60,8 +60,7 @@ easychess log page
             {
               let blob = JSON.parse(content)
               let clock = blob.clock ? `${blob.clock.initial/60000} + ${blob.clock.increment/1000}` : "infinite"
-              document.getElementById(`game${i}`).innerHTML = `${clock} ${blob.rated ? "rated" : "casual"}`
-              document.getElementById(`showblobbutton${i}`).innerHTML = `show bloob`
+              document.getElementById(`game${i}`).innerHTML = `${clock} ${blob.rated ? "rated" : "casual"}`              
             }
           ))
           
@@ -71,6 +70,7 @@ easychess log page
               let plies = blob.moves ? blob.moves.split(" ").length : 0
               document.getElementById(`result${i}`).innerHTML = `${plies < 2 ? "abort" : plies}`
               document.getElementById(`gamemsg${i}`).style.color = plies > 1 ? "#070" : "#700"
+              document.getElementById(`showblobbutton${i}`).innerHTML = `show blob`
             }                                                                                                              
           )), i*1000)
         })
