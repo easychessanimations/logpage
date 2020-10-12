@@ -13,7 +13,7 @@ function changeFavicon(src) {
     var link = document.querySelector("link[rel*='icon']") || document.createElement('link')
  let oldLink = document.getElementById('favicon');
  link.id = 'favicon'
- link.type = "image/x-icon"
+ link.type = "image/vnd.microsoft.icon"
  link.rel = 'icon'
  link.href = src;
  console.log(oldLink, link)
