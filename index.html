@@ -65,9 +65,10 @@ function changeFavicon(src) {
   }
   fetch(`https://api.github.com/repos/easychessanimations/botlogin/commits`).then(response=>response.text().then(content=>
     {
-      document.write(`<!DOCTYPE html><html><head>
+      document.write(`<!DOCTYPE html><html><head>      
+      <style>.tabl {background-color:#ffe;}</style>
       <link rel="icon" type="image/vnd.microsoft.icon" href="faviconok.ico">
-      <style>.tabl {background-color:#ffe;}</style></head><body>${new Date().toUTCString()} <span style="font-weight: bold;color: #700;" id="timeleft">${timeleft}</span><hr><div style="height: 140px;overflow-y:scroll;"><table class="tabl" cellpadding="1" cellspacing="3">`)
+      </head><body>${new Date().toUTCString()} <span style="font-weight: bold;color: #700;" id="timeleft">${timeleft}</span><hr><div style="height: 140px;overflow-y:scroll;"><table class="tabl" cellpadding="1" cellspacing="3">`)
       document.body.style.fontFamily = "monospace"
       JSON.parse(content).map((item,i)=>
         document.write(`<tr><td>${i+1}</td><td>${item.commit.message}</td><td>${item.commit.author.date}</td><td>&nbsp;<a href="https://lichess.org/@/${item.commit.message.split(" ")[0]}" rel="noopener noreferrer" target="_blamk">open</a></td><td>${isnew(item.commit.author.date)}</td></tr>`)
