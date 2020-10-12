@@ -21,6 +21,7 @@ function changeFavicon(src) {
  link.id = 'dynamic-favicon';
  link.rel = 'shortcut icon';
  link.href = src;
+ console.log(oldLink, link)
  if (oldLink) {
   document.head.removeChild(oldLink);
  }
