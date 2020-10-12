@@ -18,9 +18,9 @@ function changeFavicon(src) {
     console.log("changing favicon to " + src)
     var link = document.querySelector("link[rel*='icon']") || document.createElement('link')
  let oldLink = document.getElementById('dynamic-favicon');
- link.id = 'dynamic-favicon';
+ link.id = 'favicon'
  link.type = "image/x-icon"
- link.rel = 'shortcut icon';
+ link.rel = 'icon'
  link.href = src;
  console.log(oldLink, link)
  if (oldLink) {
