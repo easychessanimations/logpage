@@ -137,12 +137,15 @@ function changeFavicon(src) {
             fetch(`https://api.github.com/repos/easychessanimations/logonline/commits`).then(response=>response.text().then(content=>
             {
               document.write(`<hr><div style="height: 60px;overflow-y:scroll;"><table class="tabl" cellpadding="1" cellspacing="3">`)
+                let maxlogin = 0
               JSON.parse(content).map((item,i)=>{
                 document.write(`<tr><td>${i+1}</td><td>${item.commit.message}</td><td>${item.commit.author.date}</td><td>&nbsp;<a href="https://raw.githubusercontent.com/easychessanimations/logonline/${item.sha}/${item.commit.message}" rel="noopener noreferrer" target="_blank">open</a></td><td>${isnew(item.commit.author.date, true)}</td></tr>`)            
+                  let login = item.commit.message.split(" ") - 2
+                  if(login > maxlogin) maxlogin = login
               })
               document.write(`</table></div></body></html>`)
 
-              document.title=`easychesslogpage ${maxstar}`
+              document.title=`easychesslogpage ${maxstar} ${maxlogin}`
 
               playstars(maxstar.length)
             }))
