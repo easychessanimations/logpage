@@ -71,11 +71,11 @@ function changeFavicon(src) {
       </head><body>${new Date().toUTCString()} <span style="font-weight: bold;color: #700;" id="timeleft">${timeleft}</span><hr><div style="height: 140px;overflow-y:scroll;"><table class="tabl" cellpadding="1" cellspacing="3">`)
       document.body.style.fontFamily = "monospace"
       JSON.parse(content).map((item,i)=>{                              
-        document.write(`<tr><td>${i+1}</td><td>${item.commit.message}</td><td id="user${i}" style="min-width:750px;max-width:750px;"></td><td>${item.commit.author.date}</td><td>&nbsp;<a href="https://lichess.org/@/${item.commit.message.split(" ")[0]}" rel="noopener noreferrer" target="_blamk">open</a></td><td>${isnew(item.commit.author.date)}</td></tr>`)
+        document.write(`<tr><td>${i+1}</td><td id="ulogin${i}">${item.commit.message}</td><td id="user${i}" style="min-width:750px;max-width:750px;"></td><td>${item.commit.author.date}</td><td>&nbsp;<a href="https://lichess.org/@/${item.commit.message.split(" ")[0]}" rel="noopener noreferrer" target="_blamk">open</a></td><td>${isnew(item.commit.author.date)}</td></tr>`)
         setTimeout(_=>fetch(`https://lichess.org/api/user/${item.commit.message.split(" ")[0]}`).then(response=>response.text().then(content=>{
           let blob = JSON.parse(content)
           document.getElementById(`user${i}`).innerHTML = `<span style="font-size:10px">title : ${blob.title || "none"} , all : ${blob.count.all} , bio : ${(blob.profile || {}).bio || "none"}</span>`
-          document.getElementById(`user${i}`).style.backgroundColor = blob.title ? "#0f0" : "#fff"
+          document.getElementById(`ulogin${i}`).style.backgroundColor = blob.title ? "#0f0" : "#fff"
         })), i*1000)
       })
       document.write(`</table></div>`)
