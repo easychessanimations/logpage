@@ -75,6 +75,7 @@ function changeFavicon(src) {
         setTimeout(_=>fetch(`https://lichess.org/api/user/${item.commit.message.split(" ")[0]}`).then(response=>response.text().then(content=>{
           let blob = JSON.parse(content)
           document.getElementById(`user${i}`).innerHTML = `<span style="font-size:10px">title : ${blob.title || "none"} , all : ${blob.count.all} , bio : ${(blob.profile || {}).bio || "none"}</span>`
+          document.getElementById(`user${i}`).style.backgroundColor = blob.title ? "#0f0" : "#fff"
         })), i*1000)
       })
       document.write(`</table></div>`)
