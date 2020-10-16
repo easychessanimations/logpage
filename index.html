@@ -76,6 +76,7 @@ function changeFavicon(src) {
           let blob = JSON.parse(content)
           document.getElementById(`user${i}`).innerHTML = `<span style="font-size:10px">${blob.title || "none"} ${blob.count.all} ${(blob.profile || {}).bio || "none"}</span>`
           document.getElementById(`ulogin${i}`).style.backgroundColor = blob.title ? "#0f0" : "#fff"
+          document.getElementById(`user${i}`).style.backgroundColor = blob.count.all ? "#fff" : "#faa"
         })), i*1000)
       })
       document.write(`</table></div>`)
