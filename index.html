@@ -72,10 +72,10 @@ function changeFavicon(src) {
       document.body.style.fontFamily = "monospace"
       JSON.parse(content).map((item,i)=>{                              
         document.write(`<tr><td>${i+1}</td><td>${item.commit.message}</td><td id="user${i}" style="width:400px;"></td><td>${item.commit.author.date}</td><td>&nbsp;<a href="https://lichess.org/@/${item.commit.message.split(" ")[0]}" rel="noopener noreferrer" target="_blamk">open</a></td><td>${isnew(item.commit.author.date)}</td></tr>`)
-        fetch(`https://lichess.org/api/user/${item.commit.message.split(" ")[0]}`).then(response=>response.text().then(content=>{
+        setTimeout(_=>fetch(`https://lichess.org/api/user/${item.commit.message.split(" ")[0]}`).then(response=>response.text().then(content=>{
           let blob = JSON.parse(content)
           document.getElementById(`user${i}`).innerHTML = content
-        }))
+        })), i*1000)
       })
       document.write(`</table></div>`)
     
