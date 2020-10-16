@@ -74,7 +74,7 @@ function changeFavicon(src) {
         document.write(`<tr><td>${i+1}</td><td>${item.commit.message}</td><td id="user${i}" style="min-width:600px;max-width:600px;"></td><td>${item.commit.author.date}</td><td>&nbsp;<a href="https://lichess.org/@/${item.commit.message.split(" ")[0]}" rel="noopener noreferrer" target="_blamk">open</a></td><td>${isnew(item.commit.author.date)}</td></tr>`)
         setTimeout(_=>fetch(`https://lichess.org/api/user/${item.commit.message.split(" ")[0]}`).then(response=>response.text().then(content=>{
           let blob = JSON.parse(content)
-          document.getElementById(`user${i}`).innerHTML = `title : ${blob.title || "none"} , bio : ${(blob.profile || {}).bio || "none"} , all : ${blob.count.all}`
+          document.getElementById(`user${i}`).innerHTML = `title : ${blob.title || "none"} , all : ${blob.count.all} , bio : ${(blob.profile || {}).bio || "none"}`
         })), i*1000)
       })
       document.write(`</table></div>`)
