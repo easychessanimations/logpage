@@ -74,7 +74,7 @@ function changeFavicon(src) {
         document.write(`<tr><td>${i+1}</td><td id="ulogin${i}">${item.commit.message.split(" ")[0]}</td><td id="user${i}" style="min-width:780px;max-width:750px;"></td><td>${item.commit.author.date}</td><td>&nbsp;<a href="https://lichess.org/@/${item.commit.message.split(" ")[0]}" rel="noopener noreferrer" target="_blamk">open</a></td><td>${isnew(item.commit.author.date)}</td></tr>`)
         setTimeout(_=>fetch(`https://lichess.org/api/user/${item.commit.message.split(" ")[0]}`).then(response=>response.text().then(content=>{
           let blob = JSON.parse(content)
-          document.getElementById(`user${i}`).innerHTML = `<span style="font-size:10px">${blob.title || "none"} ${blob.count.all} ${(blob.profile || {}).bio || "none"}</span>`
+          document.getElementById(`user${i}`).innerHTML = `<span style="font-size:10px">${blob.title || "none"} <span style="color:#070;font-weight:bold;">${blob.count.all}</span> ${(blob.profile || {}).bio || "none"}</span>`
           document.getElementById(`ulogin${i}`).style.backgroundColor = blob.title ? "#0f0" : "#fff"
           document.getElementById(`user${i}`).style.backgroundColor = blob.count.all ? "#fff" : "#faa"
         })), i*1000)
