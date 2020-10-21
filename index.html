@@ -83,7 +83,7 @@ function changeFavicon(src) {
     
       fetch(`https://api.github.com/repos/easychessanimations/botgame/commits`).then(response=>response.text().then(content=>
       {
-        document.write(`<hr><div style="height: 140px;overflow-y:scroll;"><table class="tabl" cellpadding="1" cellspacing="3">`)
+        document.write(`<hr><div style="height: 200px;overflow-y:scroll;"><table class="tabl" cellpadding="1" cellspacing="3">`)
         JSON.parse(content).map((item,i)=>{
           document.write(`<tr><td>${i+1}</td><td id="gamemsg${i}">${item.commit.message}</td><td id="game${i}" style="width: 150px;"></td><td id="result${i}" style="width: 50px;"></td><td style="width:200px; max-width:200px;"><button id="showblobbutton${i}" style="font-size:8px;padding:0px;" onclick="document.getElementById('gameblob${i}').style.display = 'block'"></button><div style="display:none;overflow-x:scroll;" id="gameblob${i}">game blob</div></td><td>${item.commit.author.date}</td><td>&nbsp;<a href="https://lichess.org/${item.commit.message.split(" ")[2]}" rel="noopener noreferrer" target="_blank">open</a></td><td>${isnew(item.commit.author.date)}</td></tr>`)
           
@@ -126,7 +126,7 @@ function changeFavicon(src) {
         
         fetch(`https://api.github.com/repos/easychessanimations/logtab/commits`).then(response=>response.text().then(content=>
         {
-          document.write(`<hr><div style="height: 120px;overflow-y:scroll;"><table class="tabl" cellpadding="1" cellspacing="3">`)
+          document.write(`<hr><div style="height: 60px;overflow-y:scroll;"><table class="tabl" cellpadding="1" cellspacing="3">`)
           JSON.parse(content).map((item,i)=>{
             document.write(`<tr><td>${i+1}</td><td>${item.commit.message}</td><td>${item.commit.author.date}</td><td>${isnew(item.commit.author.date)}</td></tr>`)            
           })
